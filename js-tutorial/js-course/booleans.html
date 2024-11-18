@@ -1,17 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-</head>
-<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
 
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .container button {
+            padding: 10px 20px;
+            background-color: #87d78a;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .container button:hover {
+            background-color: #4CAF50;
+        }
+
+        .container button img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .container button p {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+        <button class="rock" data-choice="rock">
+            <img src="./imgs/rock.png" alt="Rock">
+            <p>Rock</p>
+        </button>
+        <button class="paper" data-choice="paper">
+            <img src="./imgs/paper.png" alt="Paper">
+            <p>Paper</p>
+        </button>
+        <button class="scissors" data-choice="scissors">
+            <img src="./imgs/scizzors.png" alt="Scissors">
+            <p>Scissors</p>
+        </button>
+    </div>
+    <div class="result" id="result"></div>
 
     <script>
-        console.log(3 < 5);
-        console.log(5 == '5.00');
-        console.log(5 === '5.00');
+        // Generate computer choice dynamically
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        // Determine the result
+        function determineResult(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+                return `It's a tie! You both chose ${playerChoice}.`;
+            } else if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                return `You win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`;
+            } else {
+                return `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice}.`;
+            }
+        }
+
+        // Handle button clicks
+        const buttons = document.querySelectorAll('.container button');
+        const resultDiv = document.getElementById('result');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const playerChoice = button.getAttribute('data-choice');
+                const computerChoice = getComputerChoice();
+                const result = determineResult(playerChoice, computerChoice);
+                resultDiv.textContent = result;
+            });
+        });
     </script>
 </body>
+
 </html>
