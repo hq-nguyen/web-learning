@@ -31,6 +31,7 @@
 
         .container button P {
             font-weight: 800;
+            color: black;
         }
     </style>
 </head>
@@ -61,7 +62,6 @@
 
     <script>
 
-
         function pickComputerMove() {
             let computerMove = '';
             const randomNumber = Math.random();
@@ -77,17 +77,17 @@
 
         function playGame(playerMove) {
             const computerMove = pickComputerMove();
-            let result = '';
+            let result = "It's a tie --)";
             if (playerMove === computerMove) {
-                result = 'It\'s a tie!';
+                result = '';
             } else if (
                 (playerMove === 'rock' && computerMove === 'scissors') ||
                 (playerMove === 'paper' && computerMove === 'rock') ||
                 (playerMove === 'scissors' && computerMove === 'paper')
             ) {
-                result = 'You win!';
+                result = 'You win ^ ^';
             } else {
-                result = 'You lose!';
+                result = 'You lose :((';
             }
             alert(`You choose ${playerMove}, computer picked ${computerMove}. ${result}`);
         }
