@@ -4,32 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Functions</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
         .container {
             display: flex;
-            justify-content: center;
+            justify-content: left;
             align-items: center;
-            gap: 15px;
-            margin-top: 20px;
         }
 
         .container button {
+            margin-left: 4px;
             padding: 10px 20px;
             background-color: #87d78a;
-            border: none;
             border-radius: 10px;
+            ;
             cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: background-color 0.3s;
         }
 
         .container button:hover {
@@ -38,75 +27,100 @@
 
         .container button img {
             width: 80px;
-            margin-bottom: 10px;
         }
 
-        .container button p {
-            font-weight: bold;
-            margin: 0;
+        .container button P {
+            font-weight: 800;
         }
 
-        .result {
-            margin-top: 30px;
-            font-size: 1.2em;
-            font-weight: bold;
+        .container .resetGame {
+            background-color: #f44336 !important;
+        }
+        .container .resetGame:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 
 <body>
+
     <h1>Rock Paper Scissors</h1>
     <div class="container">
-        <button class="rock" data-choice="rock">
-            <img src="./imgs/rock.png" alt="Rock">
+
+        <!-- ROCK -->
+        <button class="rock" onclick="playGame('rock');">
+            <img src="./imgs/rock.png" alt="">
             <p>Rock</p>
         </button>
-        <button class="paper" data-choice="paper">
-            <img src="./imgs/paper.png" alt="Paper">
+
+        <!-- PAPER -->
+        <button class="paper" onclick="playGame('paper');"><img src="./imgs/paper.png" alt="">
             <p>Paper</p>
         </button>
-        <button class="scissors" data-choice="scissors">
-            <img src="./imgs/scizzors.png" alt="Scissors">
+
+        <!-- SCISSORS  -->
+        <button class="scissors" onclick="playGame('scissors');">
+            <img src="./imgs/scizzors.png" alt="">
             <p>Scissors</p>
         </button>
+
+        <button class="resetGame" onclick="resetGame();">
+            <img src="./imgs/5632370.png" alt="">
+            <p>Reset Score</p>
+        </button>
+
     </div>
-    <div class="result" id="result"></div>
 
     <script>
-        // Generate computer choice dynamically
-        function getComputerChoice() {
-            const choices = ['rock', 'paper', 'scissors'];
-            const randomIndex = Math.floor(Math.random() * choices.length);
-            return choices[randomIndex];
-        }
 
-        // Determine the result
-        function determineResult(playerChoice, computerChoice) {
-            if (playerChoice === computerChoice) {
-                return `It's a tie! You both chose ${playerChoice}.`;
-            } else if (
-                (playerChoice === 'rock' && computerChoice === 'scissors') ||
-                (playerChoice === 'paper' && computerChoice === 'rock') ||
-                (playerChoice === 'scissors' && computerChoice === 'paper')
-            ) {
-                return `You win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice}.`;
+        const scores = {
+            win: 0,
+            tie: 0,
+            lose:0
+        };
+
+        function pickComputerMove() {
+            let computerMove = '';
+            const randomNumber = Math.random();
+            if (randomNumber < 0.33) {
+                computerMove = 'rock';
+            } else if (randomNumber < 0.66) {
+                computerMove = 'paper';
             } else {
-                return `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice}.`;
+                computerMove = 'scissors';
             }
+            return computerMove;
         }
 
-        // Handle button clicks
-        const buttons = document.querySelectorAll('.container button');
-        const resultDiv = document.getElementById('result');
+        function playGame(playerMove) {
+            const computerMove = pickComputerMove();
+            let result = '';
+            if (playerMove === computerMove) {
+                result = 'It\'s a tie!';
+                scores.tie++;
+            } else if (
+                (playerMove === 'rock' && computerMove === 'scissors') ||
+                (playerMove === 'paper' && computerMove === 'rock') ||
+                (playerMove === 'scissors' && computerMove === 'paper')
+                
+            ) {
+                result = 'You win!';
+                scores.win++;
+            } else {
+                result = 'You lose!';
+                scores.lose++;
+            }
+            alert(`You choose ${playerMove}, computer picked ${computerMove}. ${result} \n
+Win(s): ${scores.win}, Tie(s): ${scores.tie}, Lose(s): ${scores.lose}`);    
+        }
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const playerChoice = button.getAttribute('data-choice');
-                const computerChoice = getComputerChoice();
-                const result = determineResult(playerChoice, computerChoice);
-                resultDiv.textContent = result;
-            });
-        });
+        function resetGame() {
+            scores.win = 0;
+            scores.tie = 0;
+            scores.lose = 0;
+            alert('Game has been reset!');
+        }
+
     </script>
 </body>
 
