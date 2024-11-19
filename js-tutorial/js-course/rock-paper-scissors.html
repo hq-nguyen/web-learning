@@ -37,6 +37,7 @@
         .container .resetGame {
             background-color: #f44336 !important;
         }
+
         .container .resetGame:hover {
             opacity: 0.8;
         }
@@ -65,20 +66,32 @@
             <p>Scissors</p>
         </button>
 
-        <button class="resetGame" onclick="resetGame();">
+        <button class="resetGame" onclick="resetGame(); localStorage.removeItem('score');">
             <img src="./imgs/5632370.png" alt="">
             <p>Reset Score</p>
+
         </button>
 
     </div>
 
     <script>
 
-        const scores = {
+        //local storage for score keeping when page is refreshed and making default score object
+        let score = JSON.parse(localStorage.getItem('score')) || {
             win: 0,
             tie: 0,
-            lose:0
+            lose: 0
         };
+        /*
+        if (!score) {
+            score = {
+                win: 0,
+                tie: 0,
+                lose: 0
+            }
+        }
+        */
+        console.log(score);
 
         function pickComputerMove() {
             let computerMove = '';
@@ -98,27 +111,31 @@
             let result = '';
             if (playerMove === computerMove) {
                 result = 'It\'s a tie!';
-                scores.tie++;
+                score.tie++;
             } else if (
                 (playerMove === 'rock' && computerMove === 'scissors') ||
                 (playerMove === 'paper' && computerMove === 'rock') ||
                 (playerMove === 'scissors' && computerMove === 'paper')
-                
+
             ) {
                 result = 'You win!';
-                scores.win++;
+                score.win++;
             } else {
                 result = 'You lose!';
-                scores.lose++;
+                score.lose++;
             }
+
+            //local storage
+            localStorage.setItem('score', JSON.stringify(score));
+
             alert(`You choose ${playerMove}, computer picked ${computerMove}. ${result} \n
-Win(s): ${scores.win}, Tie(s): ${scores.tie}, Lose(s): ${scores.lose}`);    
+Win(s): ${score.win}, Tie(s): ${score.tie}, Lose(s): ${score.lose}`);
         }
 
         function resetGame() {
-            scores.win = 0;
-            scores.tie = 0;
-            scores.lose = 0;
+            score.win = 0;
+            score.tie = 0;
+            score.lose = 0;
             alert('Game has been reset!');
         }
 
