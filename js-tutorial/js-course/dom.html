@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- DOM: Document Object Model -->
+    <h1>DOM in JavaScript</h1>
+    <button>hello</button>
+    <button class="js-button">Second Button</button>
+
+    <script>
+        /*
+        console.log(document.title);
+        document.title = 'Changed Title';
+
+        console.log(document.body);
+        console.log(document.body.innerHTML);
+        */
+        // document.querySelector(): get any element from page and put it inside JS
+        console.log(document.querySelector('button').innerHTML)
+        document.querySelector('button').innerHTML = 'Changed Button';
+
+        document.querySelector('.js-button').innerHTML = 'Red';
+        const sencondButton = document.querySelector('.js-button');
+        console.log(sencondButton.innerHTML);
+
+        // document.body.innerHTML = 'hello';
+        // document.title = 'Good Job!';
+
+    </script>
+    
+</body>
+</html>
