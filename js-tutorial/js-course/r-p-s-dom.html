@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
+        .container button {
+            margin-left: 4px;
+            padding: 10px 20px;
+            background-color: #87d78a;
+            border-radius: 10px;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #4CAF50;
+        }
+
+        .container button img {
+            width: 80px;
+        }
+
+        .container button P {
+            font-weight: 800;
+        }
+
+        .container .resetGame {
+            background-color: #f44336 !important;
+        }
+
+        .container .resetGame:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Rock Paper Scissors</h1>
+    <div class="container">
+
+        <!-- ROCK -->
+        <button class="rock" onclick="playGame('rock');">
+            <img src="./imgs/rock.png" alt="">
+            <p>Rock</p>
+        </button>
+
+        <!-- PAPER -->
+        <button class="paper" onclick="playGame('paper');"><img src="./imgs/paper.png" alt="">
+            <p>Paper</p>
+        </button>
+
+        <!-- SCISSORS  -->
+        <button class="scissors" onclick="playGame('scissors');">
+            <img src="./imgs/scizzors.png" alt="">
+            <p>Scissors</p>
+        </button>
+
+        <button class="resetGame" onclick="resetGame(); localStorage.removeItem('score'); updateScore();">
+            <img src="./imgs/5632370.png" alt="">
+            <p>Reset Score</p>
+        </button>
+
+    </div>
+
+    <div class="play-section">
+        <h2>Score</h2>
+        <!-- display who win and why -->
+        <div class="winner"></div>
+        <div class="player-choice"></div>
+        <p>Win(s): <span class="win">0</span></p>
+        <p>Tie(s): <span class="tie">0</span></p>
+        <p>Lose(s): <span class="lose">0</span></p>
+    </div>
+
+    <script>
+
+        //local storage for score keeping when page is refreshed and making default score object
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            win: 0,
+            tie: 0,
+            lose: 0
+        };
+        /*
+        if (!score) {
+            score = {
+                win: 0,
+                tie: 0,
+                lose: 0
+            }
+        }
+        */
+        console.log(score);
+
+        // update score when reset button is clicked
+        function updateScore() {
+            document.querySelector('.win').textContent = score.win;
+            document.querySelector('.tie').textContent = score.tie;
+            document.querySelector('.lose').textContent = score.lose;
+        }
+
+        function pickComputerMove() {
+            let computerMove = '';
+            const randomNumber = Math.random();
+            if (randomNumber < 0.33) {
+                computerMove = 'rock';
+            } else if (randomNumber < 0.66) {
+                computerMove = 'paper';
+            } else {
+                computerMove = 'scissors';
+            }
+            return computerMove;
+        }
+
+        function playGame(playerMove) {
+            // get winner, choice
+            const winner = document.querySelector('.winner');
+            const playerChoice = document.querySelector('.player-choice');
+
+            const computerMove = pickComputerMove();
+            let result = '';
+            if (playerMove === computerMove) {
+                result = 'It\'s a tie!';
+                score.tie++;
+            } else if (
+                (playerMove === 'rock' && computerMove === 'scissors') ||
+                (playerMove === 'paper' && computerMove === 'rock') ||
+                (playerMove === 'scissors' && computerMove === 'paper')
+
+            ) {
+                result = 'You win!';
+                score.win++;
+            } else {
+                result = 'You lose!';
+                score.lose++;
+            }
+
+            //local storage
+            localStorage.setItem('score', JSON.stringify(score));
+
+            winner.innerHTML = result;
+            playerChoice.innerHTML = `You picked ${playerMove}, computer picked ${computerMove}`;
+            document.querySelector('.win').textContent = score.win;
+            document.querySelector('.tie').textContent = score.tie;
+            document.querySelector('.lose').textContent = score.lose;
+
+            // alert(`You choose ${playerMove}, computer picked ${computerMove}. ${result} \nWin(s): ${score.win}, Tie(s): ${score.tie}, Lose(s): ${score.lose}`);
+        }
+
+        function resetGame() {
+            score.win = 0;
+            score.tie = 0;
+            score.lose = 0;
+            alert('Game has been reset!');
+        }
+
+    </script>
+</body>
+
+</html>

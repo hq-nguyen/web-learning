@@ -10,16 +10,20 @@
 <body>
     <!-- DOM: Document Object Model -->
     <h4>Youtube Subcribe Button</h4>
-    <button class="youtube-sub-btn" onclick="subscribe();">Subscribe</button>
+    <button style="background-color: rgb(149, 188, 234);" class="youtube-sub-btn" onclick="subscribe();">Subscribe</button>
 
     <script>
         const youtubeSubBtn = document.querySelector('.youtube-sub-btn');
         function subscribe() {
             if (youtubeSubBtn.innerHTML === 'Subscribe') {
                 youtubeSubBtn.innerHTML = 'Subscribed';
+                // change the background color
+                youtubeSubBtn.style.backgroundColor = 'rgb(234, 149, 160)';
             } else {
                 confirm('Are you sure?')
                 youtubeSubBtn.innerHTML = 'Subscribe';
+                // back to the original color
+                youtubeSubBtn.style.backgroundColor = 'rgb(149, 188, 234)';
             }
         }
     </script>
