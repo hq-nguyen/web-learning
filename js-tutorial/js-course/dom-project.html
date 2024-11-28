@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Project</title>
 </head>
+
 <body>
     <!-- DOM: Document Object Model -->
     <h4>Youtube Subcribe Button</h4>
-    <button>subcribe</button>
+    <button class="youtube-sub-btn" onclick="subscribe();">Subscribe</button>
 
     <script>
- 
+        const youtubeSubBtn = document.querySelector('.youtube-sub-btn');
+        function subscribe() {
+            if (youtubeSubBtn.innerHTML === 'Subscribe') {
+                youtubeSubBtn.innerHTML = 'Subscribed';
+            } else {
+                confirm('Are you sure?')
+                youtubeSubBtn.innerHTML = 'Subscribe';
+            }
+        }
     </script>
-    
+
 </body>
+
 </html>
