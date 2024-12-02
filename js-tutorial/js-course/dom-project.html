@@ -5,13 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Project</title>
+
+    <style>
+        .youtube-sub-btn {
+            padding: 10px 20px;
+            font-weight: bold;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+
+        .is-subscribed {
+            background-color: red;
+            color: black;
+            transition: all 0.5s;
+        }
+
+    </style>
 </head>
 
 <body>
     <!-- DOM: Document Object Model -->
     <h4>Youtube Subcribe Button</h4>
-    <button style="background-color: rgb(149, 188, 234);" class="youtube-sub-btn"
-        onclick="subscribe();">Subscribe</button>
+    <button class="youtube-sub-btn" onclick="subscribe();">Subscribe</button>
 
     <!-- Shopee Shipping Calculaotor  -->
     <h4>Shopee Shipping Calculator</h4>
@@ -37,18 +56,20 @@
             document.querySelector('.total-cost').innerHTML = `Total cost: $${cost}`;
         }
 
-
+        // Youtube Subscribe Section
         const youtubeSubBtn = document.querySelector('.youtube-sub-btn');
         function subscribe() {
             if (youtubeSubBtn.innerHTML === 'Subscribe') {
                 youtubeSubBtn.innerHTML = 'Subscribed';
+                youtubeSubBtn.classList.add('is-subscribed');
                 // change the background color
-                youtubeSubBtn.style.backgroundColor = 'rgb(234, 149, 160)';
+                // youtubeSubBtn.style.backgroundColor = 'rgb(234, 149, 160)';
             } else {
                 // confirm('Are you sure?')
                 youtubeSubBtn.innerHTML = 'Subscribe';
+                youtubeSubBtn.classList.remove('is-subscribed');
                 // back to the original color
-                youtubeSubBtn.style.backgroundColor = 'rgb(149, 188, 234)';
+                // youtubeSubBtn.style.backgroundColor = 'rgb(149, 188, 234)';
             }
         }
     </script>
