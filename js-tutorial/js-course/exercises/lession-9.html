@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lession 9</title>
+</head>
+
+<body>
+    <!-- 9a -->
+    <div class="container-9a">
+        <h4>9a - Try querySelector with Button, display on console</h4>
+        <button onclick="displayInConsole()">9a</button>
+    </div>
+
+    <!-- 9b -->
+    <div class="container-9b">
+        <h4>9b - Change button</h4>
+        <button class="btn-9b" onclick="changeBnt()">9b</button>
+    </div>
+
+    <!-- 9c  -->
+    <div class="container-9c">
+        <h4>9c - Which one do you choose?</h4>
+        <div class="ex-9c-btn">
+            <button class="btn-head" onclick="userChoiceDisplay('heads')">heads</button>
+            <button class="btn-tail" onclick="userChoiceDisplay('tails')">tails</button>
+            <p class="user-choice"></p>
+        </div>
+    </div>
+
+    <!-- 9d -->
+    <div class="container-9d">
+        <h4>9d - Enter Your Name</h4>
+        <input type="text" class="user-name" onkeydown="handleKeyDown(event)">
+        <button class="btn-submit-name" onclick="displayUserName()">Submit</button>
+        <p class="user-display-name"></p>
+    </div>
+
+    <!-- 9e -->
+    <div class="container-9e">
+        <h4>9e - Shopping Cart</h4>
+        <button onclick="displayCartQuantity();">Show Quantity</button>
+
+        <button onclick=" updateCartQuantity(1);">Add to Cart</button>
+
+        <button onclick="updateCartQuantity(2);">+2</button>
+
+        <button onclick="updateCartQuantity(3);">+3</button>
+
+        <button onclick="updateCartQuantity(4);">+4</button>
+
+        <button onclick="updateCartQuantity(5);">+5</button>
+
+        <button onclick="updateCartQuantity(-1);">Remove from cart</button>
+
+        <button onclick="updateCartQuantity(-2);">-2</button>
+
+        <button onclick="updateCartQuantity(-3);">-3</button>
+
+        <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+        <p class="display-quantity"></p>
+    </div>
+
+    <!-- JS Code -->
+    <script>
+        // 9a
+        function displayInConsole() {
+            console.log(document.querySelector('button'));
+        }
+        // 9b
+        function changeBnt() {
+            const btn = document.querySelector('.btn-9b');
+            btn.innerHTML = '9b Done!';
+        }
+
+        // 9c
+        const bthHeads = document.querySelector('.btn-head');
+        const bthTails = document.querySelector('.btn-tail');
+        const userChoice = document.querySelector('.user-choice');
+        function userChoiceDisplay(choice) {
+            if (choice === 'heads') {
+                userChoice.innerHTML = 'You choose heads';
+            } else if (choice === 'tails') {
+                userChoice.innerHTML = 'You choose tails';
+            }
+        }
+
+        // 9d
+        const btnSubmitName = document.querySelector('.btn-submit-name');
+        const userName = document.querySelector('.user-name');
+        const userDisplayName = document.querySelector('.user-display-name');
+        function displayUserName() {
+            userDisplayName.innerHTML = `Hello ${userName.value}`;
+        }
+        function handleKeyDown(event) {
+            if (event.key === 'Enter') {
+                displayUserName();
+            }
+        }
+
+        // 9e
+        let cartQuantity = 0;
+        const displayQuantity = document.querySelector('.display-quantity');
+        displayCartQuantity();
+        function updateCartQuantity(change) {
+            if (cartQuantity + change > 10) {
+                displayQuantity.innerHTML = 'The cart is full';
+                return;
+            }
+
+            if (cartQuantity + change < 0) {
+                displayQuantity.innerHTML = 'Not enough items in the cart';
+                return;
+            }
+
+            cartQuantity += change;
+            displayCartQuantity();
+        }
+        function displayCartQuantity() {
+            displayQuantity.innerHTML = `Cart quantity: ${cartQuantity}`;
+        }
+
+    </script>
+</body>
+
+</html>
