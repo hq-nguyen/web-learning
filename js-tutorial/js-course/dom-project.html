@@ -10,9 +10,34 @@
 <body>
     <!-- DOM: Document Object Model -->
     <h4>Youtube Subcribe Button</h4>
-    <button style="background-color: rgb(149, 188, 234);" class="youtube-sub-btn" onclick="subscribe();">Subscribe</button>
+    <button style="background-color: rgb(149, 188, 234);" class="youtube-sub-btn"
+        onclick="subscribe();">Subscribe</button>
+
+    <!-- Shopee Shipping Calculaotor  -->
+    <h4>Shopee Shipping Calculator</h4>
+    <input placeholder="Cost of order" class="cost-order" onkeydown="handleKeyDown(event)">
+    <button onclick="calculateShipCost()">Calculate</button>
+    <p class="total-cost"></p>
 
     <script>
+        // Calculate the shipping cost
+        function handleKeyDown(event) {
+            if (event.key === 'Enter') {
+                calculateShipCost();
+            }
+        }
+
+        function calculateShipCost() {
+            const inputCost = document.querySelector('.cost-order');
+            let cost = parseFloat(inputCost.value);
+            //if amount < 40 add 10, then display on the page
+            if (cost <= 40) {
+                cost = cost + 10;
+            }
+            document.querySelector('.total-cost').innerHTML = `Total cost: $${cost}`;
+        }
+
+
         const youtubeSubBtn = document.querySelector('.youtube-sub-btn');
         function subscribe() {
             if (youtubeSubBtn.innerHTML === 'Subscribe') {
@@ -20,7 +45,7 @@
                 // change the background color
                 youtubeSubBtn.style.backgroundColor = 'rgb(234, 149, 160)';
             } else {
-                confirm('Are you sure?')
+                // confirm('Are you sure?')
                 youtubeSubBtn.innerHTML = 'Subscribe';
                 // back to the original color
                 youtubeSubBtn.style.backgroundColor = 'rgb(149, 188, 234)';
