@@ -1,0 +1,154 @@
+:root{
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg:#010103;
+    --border: .1rem solid rgba(255,255,255,0.3)
+}
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior:smooth ;
+}
+
+htlm::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius:5rem ;
+}
+
+body{
+    background: var(--bg);
+}
+
+section{
+    padding: 2rem 7%;
+}
+
+.heading{
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+.heading span{
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.9rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: 0.2rem;
+}
+
+
+
+/* media queries */
+@media(max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding: 1.5rem 2rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+}
+
+
+@media(max-width:991px){
+
+    #menu-btn{
+        display: inline-block !important;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top: 100%; right: -100%;
+        background: #fff;
+        width:30rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar a{
+        color: var(--black) !important; 
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    }
+
+    .header .navbar a:hover{
+        color: var(--main-color) !important;
+        border-bottom: 1 rem solid var(--main-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+
+    .home{
+        background-position: left;
+        justify-content: center;
+        text-align: center
+    }
+
+    .home .content h3{
+        font-size: 4.5rem;
+    }
+
+    .home .content p{
+        font-size: 1.5rem;
+    }
+}
+
+@media(max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .header{
+        padding: 1.5rem 2rem;
+    }
+
+    .blogs {
+        margin-top:28rem ;
+    }
+    .blogs .blog_container .blog .btn{
+        margin: 2.4rem 2rem 4rem;
+    }
+}
