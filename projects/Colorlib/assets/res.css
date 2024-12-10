@@ -1,0 +1,109 @@
+:root {
+    --btn-gradient: linear-gradient(to right top, #fc6c8f, #ffb86c);
+  }
+
+  @media (min-width: 1024px) and (max-width: 1239px) {
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(1) {
+      left: 20px;
+      width: 68px;
+      height: 68px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(2) {
+      width: 90px;
+      height: 90px;
+      left: 105px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(3) {
+      width: 85px;
+      height: 85px;
+      left: 55px;
+      top: 190px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(4) {
+      width: 85px;
+      height: 85px;
+      left: 135px;
+      top: 99px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(5) {
+      right: 20px;
+      width: 68px;
+      height: 68px;
+      top: 39px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(6) {
+      width: 90px;
+      height: 90px;
+      right: 105px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(7) {
+      width: 85px;
+      height: 85px;
+      right: 55px;
+      top: 190px;
+    }
+    .fui-testimonial-1 .testimoniaPersonalItem:nth-child(8) {
+      width: 85px;
+      height: 85px;
+      right: 135px;
+      top: 99px;
+    }
+  }
+
+/* PC or lap */
+
+@media (min-width: 1024px) and (max-width: 1239px) {
+  .fui-testimonial-1 .logoParalax {
+    display: none;
+  }
+} 
+
+/* Tab or Lap  */
+@media only screen and (max-width: 1023px) {
+  .fui-testimonial-1 {
+    padding-top: 30px;
+    margin-top: 60px;
+}
+  .fui-testimonial-1 .testimonialBodyList {
+    height: 100px;
+    margin-top: -75px;
+    margin-bottom: 275px;
+  }
+  .fui-testimonial-1 .testimoniaPersonalList {
+    display: none;
+  }
+  .fui-testimonial-1 .testimonialBodyItem {
+    width: 100%;
+    padding-inline: 20px;
+  }
+  .fui-testimonial-1 .logoParalax {
+    display: none;
+  }
+}
+/* phone */
+@media only screen and (max-width: 739px) {
+  .fui-testimonial-1 .testimonialBodyPersonal {
+    margin-top: 30px;
+  }
+  .fui-testimonial-1 .testimonialRate {
+    margin-bottom: 30px;
+  }
+  .fui-testimonial-1 .testimonialBodyList {
+    margin-bottom: 235px;
+  }
+  .fui-testimonial-1 .testimonialContent {
+    font-size: 14px;
+  }
+  .fui-testimonial-1 .testimonialWrap {
+    padding-bottom: 0;
+  }
+}
+
+  @keyframes floating {
+    0% {
+      transform: rotate(0deg) translate(-10px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translate(-10px) rotate(-360deg);
+    }
+  }

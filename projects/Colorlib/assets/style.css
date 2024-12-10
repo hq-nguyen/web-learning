@@ -1,0 +1,317 @@
+header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    padding: 0 15px;
+    height: 6rem;
+    background: beige;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 /10%);
+    z-index: 2;
+}
+
+header .logo{
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+header .logo span {
+    color: #31de79;
+}
+
+header .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+header .nav-list .nav-link__active{
+    color: #31de79;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.24rem solid #1dc071;
+}
+
+header .nav-list .nav-link {
+    transition: linear 0.25s;
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+header .nav-link:hover {
+    color: #31de79;
+}
+
+header .nav-list .nav-link::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    top: 4.4rem;
+    height: 0.2rem;
+    background-color: #1dc071;
+    transition: ease-in-out 0.25s;
+  }
+
+header .nav-list .nav-link:hover::before {
+  width: 4%;
+}
+
+body .home{
+    margin-top: 6rem;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../img/home.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+  
+body .home .button__home {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 2.125rem;
+    line-height: 1.75rem;
+    background-image: linear-gradient(to right top, #fc6c8f, #ffb86c);
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    user-select: none;
+    cursor: pointer;
+    isolation: isolate;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 8rem;
+}
+
+body .home .button__home:hover::before {
+    left: auto;
+    right: 0;
+    width: 100%;
+}
+
+body .home .button__home::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background-color: #31de79;
+    opacity: 0.6;
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* CSS container */
+.container{
+    width: 68%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+/* Begin section service */
+
+.container .title{
+    padding: 8rem 0 4rem;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.container .section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .section .card{
+    width: 19rem;
+    height: 21rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #cfe6fa;
+    box-shadow: 0px 0px 12px 0px #b3b3b3;
+    font-size: 2rem;
+    cursor: pointer;
+    background: #cfe6fa;
+    border-radius: 1.2rem;
+    transition: all 0.5s linear;
+}
+
+.container .section .card img{
+    margin: 2rem 0 2rem;
+    padding: 0.5rem;
+    width: 8rem;
+    border: 1px solid #cfe6fa;
+    box-shadow: 0px 0px 12px 0px #b3b3b3;
+    border-radius: 1rem;
+    transition: all 0.5s linear;
+}
+
+.container .section .card .cost{
+    font-size: 1.6rem;
+    color: #fc6c8f;
+    margin: 1rem;
+}
+
+.container .section .card:hover{
+    transform:translateY(-1rem);
+}
+
+.container .section .card:hover img{
+    transform: scale(1.2);
+}
+
+
+/* CSS Tour */
+
+.container .section .package{
+    width: 24rem;
+    height: 32rem;
+    border: 1px solid #cfe6fa;
+    box-shadow: 0px 0px 12px 0px #b3b3b3;
+    font-size: 2rem;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 1.2rem;
+    transition: all 0.5s linear;
+    overflow: hidden;
+    position: relative;
+}
+
+.container .section .tour .img{
+    width: 100%;
+    height: 100%;
+    background: url(../img/pack1.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .section .tour .img_2{
+    width: 100%;
+    height: 100%;
+    background: url(../img/pack2.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .section .tour .img_3{
+    width: 100%;
+    height: 100%;
+    background: url(../img/pack3.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .section .img span{
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    color: #fff;
+    font-size: 3.6rem;
+}
+
+.container .section .img:hover{
+    transform: scale(1.1);
+}
+
+.container .section .inform{
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1.6rem;
+    font-weight: 700;
+}
+
+.container .section .inform .location{
+    display: flex;
+    flex-direction: column;
+}
+
+.container .section .inform span{
+    font-size: 1.4rem;
+    font-weight: 100;
+}
+
+.container .section .inform .rate{
+    color: yellow;
+}
+
+.container .section .inform .rate i{
+    cursor: pointer;
+}
+
+/* CSS Images */
+
+.container .section .comment .img{
+    width: 100%;
+    height: 100%;
+    background: url(../img/pack1.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .section .comment .img_2{
+    width: 100%;
+    height: 100%;
+    background: url(../img/pack2.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .section .comment .img_3{
+    width: 100%;
+    height: 100%;
+    background: url(../img/pack3.jpg);
+    background-clip: unset;
+    background-origin: unset;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+}

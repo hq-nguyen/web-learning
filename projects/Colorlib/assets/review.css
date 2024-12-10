@@ -1,0 +1,174 @@
+.fui-testimonial-1 {
+    padding-top: 8rem;
+    border: 4px solid #1dc071;
+    border-radius: 2rem;
+    box-shadow: 1px 1px 10px 0px #35c394;
+    position: relative;
+    isolation: isolate;
+  }
+  .fui-testimonial-1 .testimonialWrap {
+    margin-top: 30px;
+    padding-block: 38px;
+    position: relative;
+  }
+  .fui-testimonial-1 .testimonialBodyList {
+    position: relative;
+    width: 100%;
+    margin-bottom: 200px;
+    height: 200px;
+    margin-top: -100px;
+  }
+  .fui-testimonial-1 .testimonialBodyItem {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.5, -0.01, 0, 1.005);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 360px;
+    height: 100%;
+    transform: translateX(-50%) translateY(100%) rotateX(-70deg);
+  }
+  .fui-testimonial-1 .testimonialBodyItem.active {
+    transform: translateX(-50%) translateY(0%) rotateX(0deg);
+    opacity: 1;
+  }
+  .fui-testimonial-1 .testimonialRate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 46px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .fui-testimonial-1 .testimonialRateIconList {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .fui-testimonial-1 .testimonialContent {
+    font-weight: 500;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
+  .fui-testimonial-1 .testimonialBodyPersonal {
+    margin-top: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+  }
+  .fui-testimonial-1 .testimonialBodyPersonalImg {
+    width: 54px;
+    height: 54px;
+    border-radius: 100rem;
+    border: 2px solid #1dc071;
+  }
+  .fui-testimonial-1 .testimonialBodyPersonalImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100rem;
+  }
+  .fui-testimonial-1 .testimonialBodyPersonalName {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem {
+    border-radius: 100rem;
+    position: absolute;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+    transition: linear 0.25s;
+    animation: floating linear infinite 0.25s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem.active .testimoniaPersonalImage {
+    border-color: #1dc071;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100rem;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(1) {
+    width: 74.29px;
+    height: 74.29px;
+    left: 128px;
+    top: 62px;
+    animation-duration: 10s;
+    transition-delay: 0.6s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(2) {
+    width: 113.75px;
+    height: 113.75px;
+    left: 120px;
+    top: -90px;
+    animation-duration: 12s;
+    transition-delay: 0s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(3) {
+    width: 98.66px;
+    height: 98.66px;
+    left: 150px;
+    top: 190px;
+    animation-duration: 11s;
+    transition-delay: 0.6s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(4) {
+    width: 94.4px;
+    height: 94.4px;
+    left: 360px;
+    top: 260px;
+    animation-duration: 6s;
+    transition-delay: 0.2s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(5) {
+    width: 120.03px;
+    height: 120.03px;
+    right: 333px;
+    top: -84px;
+    animation-duration: 7s;
+    transition-delay: 0.7s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(6) {
+    width: 99.62px;
+    height: 99.62px;
+    right: 150px;
+    top: -70px;
+    animation-duration: 5s;
+    transition-delay: 0.1s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(7) {
+    width: 104.11px;
+    height: 104.11px;
+    right: 100px;
+    top: 200px;
+    animation-duration: 5s;
+    transition-delay: 0.7s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalItem:nth-child(8) {
+    width: 78.39px;
+    height: 78.39px;
+    right: 91px;
+    top: 80px;
+    animation-duration: 8s;
+    transition-delay: 0.4s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 100rem;
+    border: 4px solid #fff;
+    transition: linear 0.3s;
+  }
+  .fui-testimonial-1 .testimoniaPersonalImage:hover {
+    border-color: #1dc071;
+  }

@@ -1,0 +1,142 @@
+.fui-footer-2 {
+    width: 100%;
+    background: #fff;
+  }
+  .fui-footer-2 .footer {
+    padding: 40px;
+  }
+  .fui-footer-2 .footer-category {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #d6d8de;
+  }
+  .fui-footer-2 .category-name {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .fui-footer-2 .footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fui-footer-2 .footer-link {
+    font-size: 14px;
+    transition: linear 0.1s;
+  }
+  .fui-footer-2 .footer-link:hover {
+    color: #1dc071;
+  }
+  .fui-footer-2 .footer-link:hover::after {
+    width: 40px;
+  }
+  .fui-footer-2 .footer-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: #1dc071;
+    transition: linear 0.25s;
+  }
+  .fui-footer-2 .footer-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-block: 18px;
+    border-bottom: 1px solid #d6d8de;
+  }
+  .fui-footer-2 .footer-social {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .fui-footer-2 .footer-social-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .fui-footer-2 .footer-social-list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* CSS social */
+
+  .fui-connect-social .social-list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fui-connect-social .social-item:hover .social-link {
+    width: 132px;
+  }
+  .fui-connect-social .social-item:hover .text {
+    display: block;
+  }
+  .fui-connect-social .social-item:hover .icon {
+    color: #fff;
+  }
+  .fui-connect-social .social-item:nth-child(1):hover .text {
+    color: #4267b2;
+  }
+  .fui-connect-social .social-item:nth-child(1):hover .icon {
+    background-color: #4267b2;
+  }
+  .fui-connect-social .social-item:nth-child(2):hover .text {
+    color: #e11d48;
+  }
+  .fui-connect-social .social-item:nth-child(2):hover .icon {
+    background-color: #e11d48;
+  }
+  .fui-connect-social .social-item:nth-child(3):hover .text {
+    color: #dc2626;
+  }
+  .fui-connect-social .social-item:nth-child(3):hover .icon {
+    background-color: #dc2626;
+  }
+  .fui-connect-social .social-link {
+    display: flex;
+    flex-wrap: wrap;
+    width: 30px;
+    height: 30px;
+    border-radius: 100rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .fui-connect-social .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 30px;
+    transition: all 0.3s ease-out;
+    border: 1px solid rgba(0, 0, 0, 0);
+  }
+  .fui-connect-social .icon svg {
+    height: 20px;
+  }
+  .fui-connect-social .text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 30px;
+    margin-left: 10px;
+    transition: all 0.3s ease-out;
+  }
+
+/* End  CSS social  */
+
+  .fui-footer-2 .footer-bottom {
+    padding-top: 40px;
+    text-align: center;
+  }
+  .fui-footer-2 .copy-right {
+    font-size: 14px;
+    font-weight: 300;
+  }
